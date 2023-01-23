@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head", {title: "Carga de vinos"})  %> 
+<body>
+    
+    <h2>Listado de vinos</h2>
+    <ul>
+        <% for(let i=0; i<vinos.length; i++) {%> 
+            <li>    
+                <h5><%= vinos[i].Vino %></h5>
+                <h4><%= vinos[i].Etiqueta %></h4>
+                <h5><%= vinos[i].Precio %></h5>
+            </li>
+        <% } %>   
+    </ul>
+</body>
+</html>
+
+<!-- <%  %>  -->
