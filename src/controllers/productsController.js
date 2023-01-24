@@ -11,7 +11,12 @@ const productsController = {
     list: (req, res) => {
         return res.render('products/listProducts', {vinos: vinos})
     // Metodo que renderiza vista del listado de productos  
-}
+},
+    detail: (req, res) => {
+        let product = vinos.find(row => row.id == req.params.id)
+        if (product) return res.render("products/detailProducts", {product: product});
+        else return res.send('Producto no encontrado')
+    }
 };
 
 module.exports = productsController
