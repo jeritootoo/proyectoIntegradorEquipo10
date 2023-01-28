@@ -1,4 +1,3 @@
-const path = require(path);
 
 const mainController = {
     
@@ -12,8 +11,12 @@ const mainController = {
         res.render('/carrito', {})
     },
     registro: (req, res) => {
-        res.render('/registro', {})
+        res.render('registro', {})
     },
+    processRegistro: (req, res) => {
+
+    },
+
     login: (req, res) => {
         res.render('/login', {})
     },    

@@ -3,24 +3,22 @@
 <%- include("../partials/head", {title: "Carga de vinos"})  %> 
 <body>
     <h2>Formulario de alta de producto</h2>
-    <form action="/products/createProducts" method="POST" enctype="multipart/form-data"> <!-- Completar -->
+    <form action="/products/createProducts" method="POST">
         <fieldset>
             <label for="product-category-input">Categoria de vino</label>
-            <input name="nombreDeCategoria" type="text" id="product-category-input">
+            <input name="Vino" type="text" id="product-category-input">
         </fieldset>
         
         <fieldset>
             <label for="product-name-input">Nombre de etiqueta</label>
-            <input name="nombreDeEtiqueta" type="text" id="product-name-input">
+            <input name="Etiqueta" type="text" id="product-name-input">
         </fieldset>
-
 
         <fieldset>
             <label for="product-price-input">Precio del producto</label>
-            <input name="precio" type="number" id="product-price-input">
+            <input name="Precio" type="number" id="product-price-input">
         </fieldset>
-        
-    
+           
         <button type="submit">CARGAR</button>
     </form>
 </body>

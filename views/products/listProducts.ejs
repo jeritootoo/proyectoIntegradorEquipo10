@@ -6,7 +6,8 @@
     <h2>Listado de vinos</h2>
     <ul>
         <% for(let i=0; i<vinos.length; i++) {%> 
-            <li>    
+            <li>
+                <h5><%= vinos[i].id %></h5>    
                 <h5><%= vinos[i].Vino %></h5>
                 <h4><%= vinos[i].Etiqueta %></h4>
                 <h5><%= vinos[i].Precio %></h5>

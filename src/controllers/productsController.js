@@ -8,6 +8,15 @@ const productsController = {
         return res.render('products/createProducts')
     // Metodo que renderiza vista de formulario de producto   
 },
+    processCreate: (req, res) => {
+        let id = vinos[vinos.length-1].id + 1
+        let nuevoVino = {id, ...req.body}
+        vinos.push(nuevoVino)
+        fs.writeFileSync(rutaVinosListadoJSON, JSON.stringify(vinos, null, 2))
+        console.log(req.body)
+        return res.redirect('/products/listProducts')
+        
+},
     list: (req, res) => {
         return res.render('products/listProducts', {vinos: vinos})
     // Metodo que renderiza vista del listado de productos  
