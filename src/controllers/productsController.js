@@ -2,6 +2,8 @@ const fs = require("fs");
 const path = require("path");
 const rutaVinosListadoJSON = path.join(__dirname, '../datos/vinoslistado.json');
 const vinos = JSON.parse(fs.readFileSync(rutaVinosListadoJSON, 'utf-8'));
+const methodOverride = require('method-override');
+app.use(methodOverride('_method'));
 
 const productsController = { 
     list: (req, res) => {
@@ -26,13 +28,22 @@ const productsController = {
         return res.redirect('/products/listProducts') 
     },
     edit: (req,res) => {
-        //Código
+        let vinoId = req.params.id;
+        let vinoIn = vinos.forEach(function(vino,index){
+        if(vinoId = vino.index){
+            let vinos =
+        vino.id = req.body.id;
+        vino.Vino = req.body.Vino;
+        vino.Precio = req.body.Precio;
+            };
+        });
+        return 
     },
     processEdit: (req,res) => {
         //Código
     },
     delete: (req,res) => {
-        //Código
+        vinos = vinos.filter(vinos => vinos.id != req.params.id);
     }
 };
 
