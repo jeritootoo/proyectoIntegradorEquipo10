@@ -37,7 +37,7 @@ const productsController = {
         vino.Precio = req.body.Precio;
             };
         });
-        return 
+        return res.send('/products/listProducts')
     },
     processEdit: (req,res) => {
         //Código
