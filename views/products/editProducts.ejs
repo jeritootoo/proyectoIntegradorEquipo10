@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Formulario de edición de producto</title>
+  </head>
+  <body>
+    <form action="/products/:id/edit?_method=PUT" method="POST">
+      <fieldset>
+        <label for="product-category-input">Categoria de vino</label>
+        <input name="Vino" type="text" id="product-category-input">
+          </fieldset>
+    
+          <fieldset>
+        <label for="product-name-input">Nombre de etiqueta</label>
+        <input name="Etiqueta" type="text" id="product-name-input">
+          </fieldset>
+
+          <fieldset>
+        <label for="product-price-input">Precio del producto</label>
+        <input name="Precio" type="number" id="product-price-input">
+          </fieldset>
+       
+    <button type="submit">EDITAR</button>
+    </form>
+  </body>
+</html>

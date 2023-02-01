@@ -28,19 +28,23 @@ const productsController = {
         return res.redirect('/products/listProducts') 
     },
     edit: (req,res) => {
+        {res.render('/editProducts')};
+        //Redireccionar a FORMULARIO
+    },
+    processEdit: (req,res) => {
         let vinoId = req.params.id;
         let vinoIn = vinos.forEach(function(vino,index){
         if(vinoId = vino.index){
             let vinos =
         vino.id = req.body.id;
         vino.Vino = req.body.Vino;
+        vino.Etiqueta = req.body.Etiqueta;
         vino.Precio = req.body.Precio;
             };
         });
-        return res.send('/products/listProducts')
-    },
-    processEdit: (req,res) => {
-        //Código
+        return res.redirect('/products/listProducts');
+        // Response para actualizar y guardar archivo
+        // Completar condicional en caso positivo y negativo
     },
     delete: (req,res) => {
         vinos = vinos.filter(vinos => vinos.id != req.params.id);
