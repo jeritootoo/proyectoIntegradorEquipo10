@@ -34,7 +34,7 @@ const productsController = {
     processEdit: (req,res) => {
         let vinoId = req.params.id;
         let vinoIn = vinos.forEach(function(vino,index){
-        if(vinoId = vino.index){
+        if(vinoId == vino.index){
             let vinos =
         vino.id = req.body.id;
         vino.Vino = req.body.Vino;
@@ -42,12 +42,19 @@ const productsController = {
         vino.Precio = req.body.Precio;
             };
         });
-        return res.redirect('/products/listProducts');
-        // Response para actualizar y guardar archivo
-        // Completar condicional en caso positivo y negativo
+
+        let id = vinos[vinos.length-1].id + 1
+        let vinoActualizado = {...req.body,id}
+        vinos.push(vinoActualizado)
+        fs.writeFileSync(rutaVinosListadoJSON, JSON.stringify(vinos, null, 2))
+        console.log(req.body)
+        return res.redirect('/products/listProducts')
+
     },
     delete: (req,res) => {
-        vinos = vinos.filter(vinos => vinos.id != req.params.id);
+        let vinosFiltrados = vinos.filter(vinos => vinos.id != req.params.id);
+        fs.writeFileSync(rutaVinosListadoJSON, JSON.stringify(vinosFiltrados, null, 2))
+        return res.render("products/list", {vinos: vinosFiltrados});
     }
 };
 
