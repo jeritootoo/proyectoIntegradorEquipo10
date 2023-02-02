@@ -17,7 +17,7 @@ const productsController = {
     detail: (req, res) => {
         let product = vinos.find(row => row.id == req.params.id)
         if (product) return res.render("products/detailProducts", {product: product});
-        else return res.send('Producto no encontrado')
+        else return res.send('Producto no encontrado');
     },
     processCreate: (req, res) => {
         let id = vinos[vinos.length-1].id + 1
@@ -25,7 +25,7 @@ const productsController = {
         vinos.push(nuevoVino)
         fs.writeFileSync(rutaVinosListadoJSON, JSON.stringify(vinos, null, 2))
         console.log(req.body)
-        return res.redirect('/products/listProducts') 
+        return res.redirect('/products/listProducts');
     },
     edit: (req,res) => {
         {res.render('/editProducts')};

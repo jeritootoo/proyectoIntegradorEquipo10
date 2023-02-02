@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Formulario de edición de producto</title>
+<head>
+  <%- include("../partials/head", {title: "Formulario de edición"})  %> 
+</head>
+    <title>Formulario de edición</title>
   </head>
   <body>
-    <form action="/products/:id/edit?_method=PUT" method="POST">
+    <form action="/products/createProducts?_method=PUT" method="POST">
       <fieldset>
-        <label for="product-category-input">Categoria de vino</label>
+        <label for="product-category-input">Categoría de vino</label>
         <input name="Vino" type="text" id="product-category-input">
           </fieldset>
     
@@ -20,7 +22,7 @@
         <input name="Precio" type="number" id="product-price-input">
           </fieldset>
        
-    <button type="submit">EDITAR</button>
+    <button type="submit">ENVIAR</button>
     </form>
   </body>
 </html>
