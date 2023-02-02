@@ -7,16 +7,16 @@ app.use(methodOverride('_method'));
 
 const productsController = { 
     list: (req, res) => {
-        return res.render('products/listProducts', {vinos: vinos})
+        return res.render('products/listProducts', {vinos: vinos});
     // Método que renderiza vista del listado de productos  
     },
     create: (req, res) => {
-        return res.render('products/createProducts')
+        return res.render('products/createProducts');
     // Método que renderiza vista de formulario de producto   
     },
     detail: (req, res) => {
         let product = vinos.find(row => row.id == req.params.id)
-        if (product) return res.render("products/detailProducts", {product: product});
+        if (product) return res.render("products/detailProducts", {product: product})
         else return res.send('Producto no encontrado');
     },
     processCreate: (req, res) => {
@@ -41,15 +41,11 @@ const productsController = {
         vino.Etiqueta = req.body.Etiqueta;
         vino.Precio = req.body.Precio;
             };
-        });
-
-        let id = vinos[vinos.length-1].id + 1
-        let vinoActualizado = {...req.body,id}
-        vinos.push(vinoActualizado)
-        fs.writeFileSync(rutaVinosListadoJSON, JSON.stringify(vinos, null, 2))
-        console.log(req.body)
-        return res.redirect('/products/listProducts')
-
+});
+        let vinoActualizado = {...req.body,id};
+        vinos.push(vinoActualizado);
+        console.log(req.body);
+        return res.redirect('/products/listProducts');
     },
     delete: (req,res) => {
         let vinosFiltrados = vinos.filter(vinos => vinos.id != req.params.id);
@@ -58,4 +54,4 @@ const productsController = {
     }
 };
 
-module.exports = productsController
+module.exports = productsController;
