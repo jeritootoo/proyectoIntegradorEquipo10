@@ -2,8 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const rutaVinosListadoJSON = path.join(__dirname, '../datos/vinoslistado.json');
 const vinos = JSON.parse(fs.readFileSync(rutaVinosListadoJSON, 'utf-8'));
-const methodOverride = require('method-override');
-app.use(methodOverride('_method'));
+
 
 const productsController = { 
     list: (req, res) => {
